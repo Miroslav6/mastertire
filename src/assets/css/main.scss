@@ -2,13 +2,14 @@
 @import '../css/variables.scss';
 
 body {
-    background-color: $base-color;
     font-family: $base-font;
 }
 
 header {
+    padding: 20px 0;
+    background-color: $base-color;
     nav {
-        // display: flex;
+        font-size: $fontsize-l;
 
         ul {
             display: flex;
@@ -24,5 +25,16 @@ header {
             }
 
         }
+    }
+
+    .hd-phone {
+        padding-right: 10px;
+        color: $color-1;
+        font-size: $fontsize-l;
+    }
+
+    .hd-contact {
+        font-size: $fontsize-l;
+        color: $color-1;
     }
 }

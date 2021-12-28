@@ -22,8 +22,9 @@ const Layout = () => {
                                 </ul>
                             </nav>
                         </div>
-                        <div className='col col-sm-2 d-flex'>
-                            <a href='tel:+359883378679' className=''>+359883378679</a>
+                        <div className='col col-sm-2 d-flex align-items-center '>
+                            <a href='tel:+359883378679' className='hd-phone'><i class="bi bi-telephone"></i>+359 883378679</a>
+                            <a href='/contact-us' className='hd-contact'><i class="bi bi-pin-map"></i></a>
                         </div>
                     </div>
                 </div>
