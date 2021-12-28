@@ -1,5 +1,4 @@
 import { Outlet, Link } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from '../Files/Images/logo.png'
 
 const Layout = () => {
@@ -11,9 +10,9 @@ const Layout = () => {
                         <div className='col col-sm-2'>
                             <img src={Logo} alt="Logo" />
                         </div>
-                        <div className='col col-sm-10'>
-                            <nav>
-                                <ul>
+                        <div className='col col-sm-8'>
+                            <nav className='h-100 d-flex justify-content-center'>
+                                <ul className='align-items-center'>
                                     <li>
                                         <Link to="/">Home</Link>
                                     </li>
@@ -22,6 +21,9 @@ const Layout = () => {
                                     </li>
                                 </ul>
                             </nav>
+                        </div>
+                        <div className='col col-sm-2 d-flex'>
+                            <a href='tel:+359883378679' className=''>+359883378679</a>
                         </div>
                     </div>
                 </div>

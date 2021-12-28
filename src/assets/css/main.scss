@@ -1,0 +1,28 @@
+@import '../css/fonts.scss';
+@import '../css/variables.scss';
+
+body {
+    background-color: $base-color;
+    font-family: $base-font;
+}
+
+header {
+    nav {
+        // display: flex;
+
+        ul {
+            display: flex;
+
+            li {
+                flex: 1 1 auto;
+                padding: 0 10px;
+                
+                a {
+                    color: $color-1;
+                    font-weight: bold;
+                }
+            }
+
+        }
+    }
+}
