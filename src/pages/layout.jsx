@@ -8,7 +8,9 @@ const Layout = () => {
                 <div className='container'>
                     <div className='row'>
                         <div className='col col-sm-2'>
-                            <img src={Logo} alt="Logo" />
+                            <a href='/' title='logo'>
+                                <img src={Logo} alt="Logo" />
+                            </a>
                         </div>
                         <div className='col col-sm-8'>
                             <nav className='h-100 d-flex justify-content-center'>
@@ -19,17 +21,27 @@ const Layout = () => {
                                     <li>
                                         <Link to="/products">Products</Link>
                                     </li>
+                                    <li>
+                                        <Link to="/contacts">Contacts</Link>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
                         <div className='col col-sm-2 d-flex align-items-center '>
-                            <a href='tel:+359883378679' className='hd-phone'><i class="bi bi-telephone"></i>+359 883378679</a>
-                            <a href='/contact-us' className='hd-contact'><i class="bi bi-pin-map"></i></a>
+                            <a href='tel:+359883378679' className='hd-phone'><i className="bi bi-telephone"></i>+359 883378679</a>
+                            <a href='/contact-us' className='hd-contact'><i className="bi bi-pin-map"></i></a>
                         </div>
                     </div>
                 </div>
             </header>
-            <Outlet />
+            <main>
+                <div className='container'>
+                    <Outlet />
+                </div>
+            </main>
+            <footer>
+
+            </footer>
         </>
     )
 };
