@@ -25,7 +25,15 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
-            }
+            },
+            {
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/i,
+                use: [
+                    {
+                        loader: 'file-loader'
+                    },
+                ],
+            },
         ]
     }
 }
