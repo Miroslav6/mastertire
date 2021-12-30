@@ -41,4 +41,22 @@ header {
 
 main {
     margin-top: 20px;
+
+    .breadcrumb {
+
+        h1{
+            font-size: $fontsize-l;
+        }
+
+    }
+
+    .stock-container{
+
+        .stock-item {
+
+            &:hover{
+                opacity: .5;
+            }
+        }
+    }
 }
