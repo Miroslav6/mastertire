@@ -12,10 +12,13 @@ export const Products = () => {
         {productData.map((data, key) => {
           return (
             <div className='col col-sm-3 stock-item' key={key}>
-              <div>{data.image ? <img src={data.image} alt="Brand image" /> : ''}</div>
-              <div>Производител - {data.brand}</div>
-              <div>Модел - {data.model}</div>
-              <div>Размер - {data.size}</div>
+              <a href={'/product/'+ data.id}>
+                <div>{data.image ? <img src={data.image} alt="Brand image" /> : ''}</div>
+                <div>Производител - {data.brand}</div>
+                <div>Модел - {data.model}</div>
+                <div>Размер - {data.size}</div>
+                <div>Цена - {data.price}лв</div>
+              </a>
             </div>
           );
         })}

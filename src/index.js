@@ -6,6 +6,7 @@ import Home from './pages/home';
 import Layout from './pages/layout'
 import Products from './pages/products'
 import Contacts from './pages/contacts'
+import ProductPage from './pages/ProductPage';
 import NoPage from './pages/NoPage'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bulma/css/bulma.css';
@@ -21,6 +22,7 @@ ReactDOM.render(
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
