@@ -12,7 +12,7 @@ const Layout = () => {
                                 <img src='/Files/Images/logo.png' alt="Logo" />
                             </a>
                         </div>
-                        <div className='col col-sm-8'>
+                        <div className='col col-sm-7'>
                             <nav className='h-100 d-flex justify-content-center'>
                                 <ul className='align-items-center'>
                                     <li>
@@ -27,7 +27,7 @@ const Layout = () => {
                                 </ul>
                             </nav>
                         </div>
-                        <div className='col col-sm-2 d-flex align-items-center '>
+                        <div className='col col-sm-3 d-flex align-items-center justify-content-end'>
                             <a href='tel:+359883378679' className='hd-phone'><i className="bi bi-telephone"></i>+359 883378679</a>
                             <a href='/contact-us' className='hd-contact'><i className="bi bi-pin-map"></i></a>
                         </div>

@@ -5,10 +5,10 @@ import { productData } from "../db-products";
 const ProductPage = (props) => {
   const url = window.location.href;
   const lastSegment = url.substring(url.lastIndexOf("/") + 1);
-  console.log(lastSegment);
-  console.log(productData);
-  const productId = productData.find( ({ id }) => id == lastSegment );
-  console.log(productId);
+  
+  const productId = productData.find(({ id }) => id == lastSegment);
+  const htmlString = productId.description;
+  
   useEffect(() => {
 
     // Axios.get(`/api/product/products_by_id?id=${productData.id}&type=single`)
@@ -20,14 +20,16 @@ const ProductPage = (props) => {
   }, [])
 
   return (
-    <div>
-      <div className='col col-sm-3 stock-item'>
+    <div className='row'>
+      <div className='col col-sm-6 stock-item'>
         <div>{productId.image ? <img src={productId.image} alt="Brand image" /> : ''}</div>
         <div>Производител - {productId.brand}</div>
         <div>Модел - {productId.model}</div>
         <div>Размер - {productId.size}</div>
       </div>
-
+      <div className='col col-sm-6'>
+        <div dangerouslySetInnerHTML={{ __html: htmlString }} />
+      </div>
 
     </div>
   );
