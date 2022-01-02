@@ -4,7 +4,7 @@ import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
     return (
         <>
-            <header>
+            <header className='sticky-top'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col col-sm-2'>
@@ -23,6 +23,9 @@ const Layout = () => {
                                     </li>
                                     <li>
                                         <Link to="/contacts">Contacts</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/about-us">За Нас</Link>
                                     </li>
                                 </ul>
                             </nav>

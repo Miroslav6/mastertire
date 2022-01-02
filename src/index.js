@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals'
 import Home from './pages/home';
 import Layout from './pages/layout'
 import Products from './pages/products'
+import AboutUs from './pages/AboutUs'
 import Contacts from './pages/contacts'
 import ProductPage from './pages/ProductPage';
 import NoPage from './pages/NoPage'
@@ -22,6 +23,7 @@ ReactDOM.render(
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="contacts" element={<Contacts />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
