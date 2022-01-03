@@ -25,6 +25,9 @@ const Layout = () => {
                                         <Link to="/contacts">Contacts</Link>
                                     </li>
                                     <li>
+                                        <Link to="/used-tires">Втора употреба</Link>
+                                    </li>
+                                    <li>
                                         <Link to="/about-us">За Нас</Link>
                                     </li>
                                 </ul>

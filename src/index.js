@@ -24,6 +24,7 @@ ReactDOM.render(
           <Route path="products" element={<Products />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/used-tires" element={<Products />} />
           <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>

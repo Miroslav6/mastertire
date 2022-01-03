@@ -6,6 +6,7 @@ export const productData = [
         "size":"180 60 17",
         "DOT": 2018,
         "type": "Мото гума",
+        "condition": "нова",
         "image": "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png",
         "price": "300.00",
         "shortdescription": "Задна гума",
