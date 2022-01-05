@@ -22,25 +22,26 @@ const ProductPage = (props) => {
   }, [])
 
   return (
-    <><div role="presentation">
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Начало
-        </Link>
-        <Link
-          underline="hover"
-          color="inherit"
-          href="/products"
-        >
-          Продукти
-        </Link>
-        <Typography color="text.primary">Breadcrumbs</Typography>
-      </Breadcrumbs>
-    </div>
+    <div className="container">
+      <div role="presentation">
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link underline="hover" color="inherit" href="/">
+            Начало
+          </Link>
+          <Link
+            underline="hover"
+            color="inherit"
+            href="/products"
+          >
+            Продукти
+          </Link>
+          <Typography color="text.primary">Breadcrumbs</Typography>
+        </Breadcrumbs>
+      </div>
       <div className='row'>
         <div className='col col-sm-6 stock-item'>
 
-          <div>{productId.image ? <img src={productId.image} alt="Brand image" /> : ''}</div>
+          <div>{productId.images.image1 ? <img src={productId.images.image1} alt="Brand image" /> : ''}</div>
 
         </div>
         <div className='col col-sm-6'>
@@ -48,7 +49,7 @@ const ProductPage = (props) => {
           <p className='price-amount'><bdi>{productId.price} <span className='price-currency-symbol'>лв</span></bdi></p>
           <ul>
             <li><strong>Марка</strong> - {productId.brand}</li>
-            <li><strong>Размер</strong> - {productId.size}</li>
+            <li><strong>Размер</strong> - {productId.sizewidth} {productId.sizeheight} {productId.sizediameter}</li>
             <li><strong>DOT</strong> - {productId.DOT}</li>
             <li><strong>Тип</strong> - {productId.type}</li>
           </ul>
@@ -58,7 +59,7 @@ const ProductPage = (props) => {
           <div dangerouslySetInnerHTML={{ __html: productId.description }} />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
