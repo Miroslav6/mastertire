@@ -1,9 +1,13 @@
-import React, {useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Slideshow from "../Components/Slideshow"
 
-const Home = () => {
-  const addBodyClass = className => document.body.classList.add('home-page');
-  const removeBodyClass = className => document.body.classList.remove('home-page');
+const Home = (props) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    document.body.classList.toggle('home-page', isOpen);
+  },[isOpen])
+  
   return (
     <>
       <Slideshow />

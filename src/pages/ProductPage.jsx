@@ -4,6 +4,7 @@ import { productData } from "../db-products";
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
+import ImageGallery from 'react-image-gallery';
 
 const ProductPage = (props) => {
   const url = window.location.href;
@@ -11,7 +12,27 @@ const ProductPage = (props) => {
 
   const productId = productData.find(({ id }) => id == lastSegment);
 
+  const images = productId.images;
+  const images2 = [
+    {
+      original: 'https://picsum.photos/id/1018/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1019/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1019/250/150/',
+    },
+  ];
+
+  // console.log(images1);
+  console.log(images);
+
   useEffect(() => {
+    
 
     // Axios.get(`/api/product/products_by_id?id=${productData.id}&type=single`)
 
@@ -22,7 +43,7 @@ const ProductPage = (props) => {
   }, [])
 
   return (
-    <div className="container">
+    <div className="container mt-5">
       <div role="presentation">
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
@@ -41,8 +62,8 @@ const ProductPage = (props) => {
       <div className='row'>
         <div className='col col-sm-6 stock-item'>
 
-          <div>{productId.images.image1 ? <img src={productId.images.image1} alt="Brand image" /> : ''}</div>
-
+          {/* <div>{productId.images.image1 ? <img src={productId.images.image1} alt="Brand image" /> : ''}</div> */}
+          <ImageGallery items={images} />
         </div>
         <div className='col col-sm-6'>
           <h1 className='product-title'>{productId.shortdescription} {productId.brand} {productId.model} {productId.size}</h1>
