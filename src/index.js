@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals'
 import Home from './pages/home';
 import Layout from './pages/layout'
 import Products from './pages/products'
+import UsedProducts from './pages/UsedProducts'
 import AboutUs from './pages/AboutUs'
 import Contacts from './pages/contacts'
 import ProductPage from './pages/ProductPage';
@@ -24,7 +25,7 @@ ReactDOM.render(
           <Route path="products" element={<Products />} />
           <Route path="contacts" element={<Contacts />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/used-tires" element={<Products />} />
+          <Route path="/used-tires" element={<UsedProducts />} />
           <Route path="/product/:productId" element={<ProductPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>

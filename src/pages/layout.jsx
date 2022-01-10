@@ -19,7 +19,7 @@ const Layout = () => {
                                         <Link to="/">Home</Link>
                                     </li>
                                     <li>
-                                        <Link to="/products">Products</Link>
+                                        <Link to="/products">Продукти</Link>
                                     </li>
                                     <li>
                                         <Link to="/contacts">Contacts</Link>
@@ -34,7 +34,7 @@ const Layout = () => {
                             </nav>
                         </div>
                         <div className='col col-sm-3 d-flex align-items-center justify-content-end'>
-                            <a href='tel:+359883378679' className='hd-phone'><i className="bi bi-telephone"></i>+359 883378679</a>
+                            <a href='tel:+359883378679' className='hd-phone'><i className="bi bi-telephone"></i> +359 883378679</a>
                             <a href='/contact-us' className='hd-contact'><i className="bi bi-pin-map"></i></a>
                         </div>
                     </div>

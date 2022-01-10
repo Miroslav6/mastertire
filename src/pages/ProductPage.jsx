@@ -61,8 +61,6 @@ const ProductPage = (props) => {
       </div>
       <div className='row'>
         <div className='col col-sm-6 stock-item'>
-
-          {/* <div>{productId.images.image1 ? <img src={productId.images.image1} alt="Brand image" /> : ''}</div> */}
           <ImageGallery items={images} />
         </div>
         <div className='col col-sm-6'>
