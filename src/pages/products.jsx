@@ -13,11 +13,11 @@ export const Products = () => {
           return (
             <div className='col col-sm-3 stock-item' key={key}>
               <a href={'/product/'+ data.id}>
-                <div>{data.images ? <img src={data.images.image1} alt="Brand image" /> : ''}</div>
+                <div>{data.images ? <img src={data.images[0].original} alt="Brand image" /> : ''}</div>
                 <div>Производител - {data.brand}</div>
                 <div>Модел - {data.model}</div>
                 <div>Размер - {data.sizewidth} {data.sizeheight} {data.sizediameter}</div>
-                <div><strong>Цена</strong> - {data.price}лв</div>
+                <div>Цена - <strong>{data.price}лв</strong></div>
               </a>
             </div>
           );

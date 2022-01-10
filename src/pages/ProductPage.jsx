@@ -74,6 +74,8 @@ const ProductPage = (props) => {
             <li><strong>DOT</strong> - {productId.DOT}</li>
             <li><strong>Тип</strong> - {productId.type}</li>
           </ul>
+          <p>За поръчки и консултация се свържете с наш консултант</p>
+          <a href='tel:+359883378679' className='h3 hd-phone'><i className="bi bi-telephone"></i> +359 883378679</a>
         </div>
         <div className='col col-sm-12'>
           <h2>Описание за продукта</h2>

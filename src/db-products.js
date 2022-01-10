@@ -2,7 +2,7 @@ export const productData = [
     {
         "id": 1,
         "brand":"Dunlop",
-        "model": "Sportmax D213",
+        "model": "Sportmax D213 GP PRO",
         "sizewidth":"180",
         "sizeheight":"60",
         "sizediameter":"17",
@@ -11,7 +11,7 @@ export const productData = [
         "condition": "нова",
         "images": [
             {original: "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png"},
-            {original: "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png"},
+            {original: "/Files/Images/Products/Dunlop/spec-D213-GP-PRO.jpg"},
             {original: "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png"}
         ],
         "price": "300.00",
@@ -21,7 +21,7 @@ export const productData = [
     {
         "id": 2,
         "brand":"Dunlop",
-        "model": "Sportmax D213",
+        "model": "Sportsmart TT",
         "sizewidth":"180",
         "sizeheight":"60",
         "sizediameter":"17",
@@ -29,11 +29,26 @@ export const productData = [
         "type": "Мото гума",
         "condition": "нова",
         "images": [
-            {original: "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png"},
-            {original: "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png"},
-            {original: "/Files/Images/Products/Dunlop/dunlop-D213-GP-PRO-задна.png"}
+            {original: "/Files/Images/Products/Dunlop/Dunlop-SPORTSMART-TT.png"},
         ],
-        "price": "300.00",
+        "price": "210.00",
+        "shortdescription": "Задна гума",
+        "description": "<p>Максимално представяне на пътя или на пистата</p><ul><li>Изключителен баланс между намалено усилие в завой и оптимално сцепление;</li><li>Спокойно и забавно управление на пътя и ефективност, наподобяваща поведение на състезателна гума;</li><li>Оптимално сцепление, постигнато чрез специална система за вентилация на протектора (SVT);</li><li>Дълъг живот и еднакво представяне в различни ситуации, осигуряват безопасно сцепление както по пътя, така и на пистата.</li></ul>"
+    },
+    {
+        "id": 3,
+        "brand":"Dunlop",
+        "model": "Radial KR108",
+        "sizewidth":"205",
+        "sizeheight":"60",
+        "sizediameter":"17",
+        "DOT": 2016,
+        "type": "Мото гума",
+        "condition": "нова",
+        "images": [
+            {original: "/Files/Images/Products/Dunlop/KR106_KR108-dunlop.png"},
+        ],
+        "price": "280.00",
         "shortdescription": "Задна гума",
         "description": "<p>Максимално представяне на пътя или на пистата</p><ul><li>Изключителен баланс между намалено усилие в завой и оптимално сцепление;</li><li>Спокойно и забавно управление на пътя и ефективност, наподобяваща поведение на състезателна гума;</li><li>Оптимално сцепление, постигнато чрез специална система за вентилация на протектора (SVT);</li><li>Дълъг живот и еднакво представяне в различни ситуации, осигуряват безопасно сцепление както по пътя, така и на пистата.</li></ul>"
     }
