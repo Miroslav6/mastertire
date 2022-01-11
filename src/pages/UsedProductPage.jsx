@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Axios } from "axios";
-import { productData } from "../db-products";
+import { productData } from "../db-products-used";
 import Typography from '@mui/material/Typography';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
@@ -13,8 +13,6 @@ const ProductPage = (props) => {
   const productId = productData.find(({ id }) => id == lastSegment);
 
   const images = productId.images;
-
-  console.log(images);
 
   useEffect(() => {
     
@@ -29,7 +27,7 @@ const ProductPage = (props) => {
 
   return (
     <div className="container mt-5">
-      <div role="presentation">
+      <div className="mb-5" role="presentation">
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
             Начало

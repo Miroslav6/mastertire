@@ -12,8 +12,8 @@ export const Products = () => {
         {productData.map((data, key) => {
           return (
             <div className='col col-sm-3 stock-item' key={key}>
-              <a href={'/used-product/'+ data.id}>
-                <div>{data.images ? <img src={data.images[0].original} alt="Brand image" /> : ''}</div>
+              <a href={'/used-tires/'+ data.id}>
+                <div className='image-frame'>{data.images ? <img src={data.images[0].original} alt="Brand image" /> : ''}</div>
                 <div>Производител - {data.brand}</div>
                 <div>Модел - {data.model}</div>
                 <div>Размер - {data.sizewidth} {data.sizeheight} {data.sizediameter}</div>

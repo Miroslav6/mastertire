@@ -6,6 +6,7 @@ import Home from './pages/home';
 import Layout from './pages/layout'
 import Products from './pages/products'
 import UsedProducts from './pages/UsedProducts'
+import UsedProductsPage from './pages/UsedProductPage'
 import AboutUs from './pages/AboutUs'
 import Contacts from './pages/contacts'
 import ProductPage from './pages/ProductPage';
@@ -27,6 +28,7 @@ ReactDOM.render(
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/used-tires" element={<UsedProducts />} />
           <Route path="/product/:productId" element={<ProductPage />} />
+          <Route path="/used-tires/:productId" element={<UsedProductsPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

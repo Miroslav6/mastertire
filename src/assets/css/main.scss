@@ -95,6 +95,13 @@ main {
     }
 }
 
+.image-frame {
+    max-width: 100%;
+    height: 227px;
+    margin-bottom: $margin-s;
+    overflow: hidden;
+}
+
 .price-amount {
     font-size: $fontsize-xl;
     font-weight: 700;
