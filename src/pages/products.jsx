@@ -9,10 +9,22 @@ import Select from '@mui/material/Select';
 
 export const Products = () => {
   const [width, setWidth] = useState('');
+  const [height, setHeight] = useState('');
+  const [diameter, setDiameter] = useState('');
   const allWidth = productData.map((data) => data.sizewidth);
-  console.log(allWidth);
-  const handleChange = (event) => {
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  const allUniqueWidth = allWidth.filter(onlyUnique);
+
+  const handleChangeWidth = (event) => {
     setWidth(event.target.value);
+  };
+  const handleChangeHeight = (event) => {
+    setHeight(event.target.value);
+  };
+  const handleChangeDiameter = (event) => {
+    setDiameter(event.target.value);
   };
   return (
     <div className='container mt-5'>
@@ -29,12 +41,12 @@ export const Products = () => {
                 id="demo-simple-select"
                 value={width}
                 label="Ширина"
-                onChange={handleChange}
+                onChange={handleChangeWidth}
               >
-                {productData?.map(data => {
+                {allUniqueWidth?.map(data => {
                   return (
-                    <MenuItem key={data.sizewidth} value={data.sizewidth}>
-                      {data.sizewidth}
+                    <MenuItem key={data} value={data}>
+                      {data}
                     </MenuItem>
                   );
                 })}
@@ -49,9 +61,9 @@ export const Products = () => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={width}
+                value={height}
                 label="Височина"
-                onChange={handleChange}
+                onChange={handleChangeHeight}
               >
                 <MenuItem value={10}>Ten</MenuItem>
                 <MenuItem value={20}>Twenty</MenuItem>
@@ -67,9 +79,9 @@ export const Products = () => {
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
-                value={width}
+                value={diameter}
                 label="Диаметър"
-                onChange={handleChange}
+                onChange={handleChangeDiameter}
               >
                 <MenuItem value={10}>Ten</MenuItem>
                 <MenuItem value={20}>Twenty</MenuItem>
