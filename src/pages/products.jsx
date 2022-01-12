@@ -11,11 +11,10 @@ export const Products = () => {
   const [width, setWidth] = useState('');
   const [height, setHeight] = useState('');
   const [diameter, setDiameter] = useState('');
-  const allWidth = productData.map((data) => data.sizewidth);
-  function onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
-  }
-  const allUniqueWidth = allWidth.filter(onlyUnique);
+
+  const allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth))];
+  const allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight))];
+  const allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter))];
 
   const handleChangeWidth = (event) => {
     setWidth(event.target.value);
@@ -43,7 +42,7 @@ export const Products = () => {
                 label="Ширина"
                 onChange={handleChangeWidth}
               >
-                {allUniqueWidth?.map(data => {
+                {allUniqueWidths?.map(data => {
                   return (
                     <MenuItem key={data} value={data}>
                       {data}
@@ -65,9 +64,13 @@ export const Products = () => {
                 label="Височина"
                 onChange={handleChangeHeight}
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                {allUniqueHeights?.map(data => {
+                  return (
+                    <MenuItem key={data} value={data}>
+                      {data}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Box>
@@ -83,9 +86,13 @@ export const Products = () => {
                 label="Диаметър"
                 onChange={handleChangeDiameter}
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                {allUniqueDiameters?.map(data => {
+                  return (
+                    <MenuItem key={data} value={data}>
+                      {data}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Box>
