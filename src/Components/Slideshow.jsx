@@ -5,8 +5,9 @@ import 'react-slideshow-image/dist/styles.css'
 
 const Slideshow = () => {
     const images = [
+        '/Files/Images/Slideshow/P1006642.jpg',
         '/Files/Images/Slideshow/IMG_20220102_150618.jpg',
-        '/Files/Images/Slideshow/IMG_20220102_150749.jpg',
+        '/Files/Images/Slideshow/IMG_20220102_150749.jpg'
     ];
     const zoomInProperties = {
         indicators: true,
