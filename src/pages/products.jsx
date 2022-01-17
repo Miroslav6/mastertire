@@ -15,36 +15,61 @@ const Products = () => {
     sizediameter: ''
   };
 
-  const [
-    { width, height, diameter }, setSelectTyre
-  ] = useState(initialTire);
+  const [products, setProducts] = useState(productData);
+  const [width, setWidth] = useState('Ширина');
+  const [height, setHeight] = useState('');
+  const [diameter, setDiameter] = useState('');
+
+  // const [
+  //   { width, height, diameter }, setSelectTyre
+  // ] = useState(initialTire);
 
   const clearState = () => {
-    alert(1);
-    setSelectTyre({ ...initialTire });
+    // setSelectTyre({ ...initialTire });
+    // console.log(setSelectTyre({ ...initialTire }));
   };
 
   useEffect(() => {
+    let filteredProducts = productData;
+    if(width !== 'Ширина') {
+      filteredProducts = filteredProducts.filter(product => product.sizewidth === width)
+    }
+    setProducts(filteredProducts);
     // const data = productData.filter() => {width};
     // const data = productData.filter(test) => test;
     // console.log(data);
 
-  });
-  const allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth).sort())];
+  },[width]);
+
+  let allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth)), 'Ширина'];
+  //allUniqueWidths.push('широчина');
+  //allUniqueWidths.sort();
   const allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort())];
   const allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort())];
 
+const handleFilterChange = (e, filterType) => {
+switch (filterType) {
+    case "width":
+      setWidth(e.target.value)
+      break;
+}
+
+};
+
   const handleChangeWidth = (event) => {
-    const { name, value } = event.target;
-    setSelectTyre({ ...initialTire, sizewidth: value });
+    handleFilterChange(event, 'width')
+    // alert(1);
+    // const { name, value } = event.target;
+    // setSelectTyre({ ...initialTire, sizewidth: value });
+
   };
   const handleChangeHeight = (event) => {
-    const { name, value } = event.target;
-    setSelectTyre({ ...initialTire, sizeheight: value });
+    // const { name, value } = event.target;
+    // setSelectTyre({ ...initialTire, sizeheight: value });
   };
   const handleChangeDiameter = (event) => {
-    const { name, value } = event.target;
-    setSelectTyre({ ...initialTire, sizediameter: value });
+    // const { name, value } = event.target;
+    // setSelectTyre({ ...initialTire, sizediameter: value });
   };
 
 
@@ -128,7 +153,7 @@ const Products = () => {
       </div>
       <div className='row stock-container'>
 
-        {productData.map((data, key) => {
+        {products.map((data, key) => {
           return (
             <div className='col col-sm-3 stock-item' key={key}>
               <a href={'/product/' + data.id}>
