@@ -9,24 +9,16 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
 const Products = () => {
-  const initialTire = {
-    sizewidth: '',
-    sizeheight: '',
-    sizediameter: ''
-  };
 
   const [products, setProducts] = useState(productData);
   const [width, setWidth] = useState('Ширина');
-  const [height, setHeight] = useState('');
-  const [diameter, setDiameter] = useState('');
-
-  // const [
-  //   { width, height, diameter }, setSelectTyre
-  // ] = useState(initialTire);
+  const [height, setHeight] = useState('Височина');
+  const [diameter, setDiameter] = useState('Диаметър');
 
   const clearState = () => {
-    // setSelectTyre({ ...initialTire });
-    // console.log(setSelectTyre({ ...initialTire }));
+    setWidth('Ширина');
+    setHeight('Височина');
+    setDiameter('Диаметър');
   };
 
   useEffect(() => {
@@ -34,42 +26,48 @@ const Products = () => {
     if(width !== 'Ширина') {
       filteredProducts = filteredProducts.filter(product => product.sizewidth === width)
     }
+
+    if(height !== 'Височина') {
+      filteredProducts = filteredProducts.filter(product => product.sizeheight === height)
+    }
+
+    if(diameter !== 'Диаметър') {
+      filteredProducts = filteredProducts.filter(product => product.sizediameter === diameter)
+    }
+
     setProducts(filteredProducts);
-    // const data = productData.filter() => {width};
-    // const data = productData.filter(test) => test;
-    // console.log(data);
 
-  },[width]);
+  },[width, height, diameter]);
 
-  let allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth)), 'Ширина'];
-  //allUniqueWidths.push('широчина');
-  //allUniqueWidths.sort();
-  const allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort())];
-  const allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort())];
+  let allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth).sort()), 'Ширина'];
+  let allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort()), 'Височина'];
+  let allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort()), 'Диаметър'];
 
 const handleFilterChange = (e, filterType) => {
 switch (filterType) {
     case "width":
       setWidth(e.target.value)
       break;
-}
+
+    case "height":
+      setHeight(e.target.value)
+      break;
+
+    case "diameter":
+      setDiameter(e.target.value)
+      break;
+  }
 
 };
 
   const handleChangeWidth = (event) => {
     handleFilterChange(event, 'width')
-    // alert(1);
-    // const { name, value } = event.target;
-    // setSelectTyre({ ...initialTire, sizewidth: value });
-
   };
   const handleChangeHeight = (event) => {
-    // const { name, value } = event.target;
-    // setSelectTyre({ ...initialTire, sizeheight: value });
+    handleFilterChange(event, 'height')
   };
   const handleChangeDiameter = (event) => {
-    // const { name, value } = event.target;
-    // setSelectTyre({ ...initialTire, sizediameter: value });
+    handleFilterChange(event, 'diameter')
   };
 
 
@@ -146,8 +144,6 @@ switch (filterType) {
           </Box>
         </div>
         <div className='col col-sm-3 mb-5 stock-item'>
-          <Button variant="contained" className='h-100'>Търси</Button>
-          {/* <Button variant="contained" className='ml-3 h-100'>Изчисти</Button> */}
           <Button variant="contained" onClick={clearState} className='ml-3 h-100'>Изчисти</Button>
         </div>
       </div>
