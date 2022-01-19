@@ -45,12 +45,12 @@ const ProductPage = (props) => {
         </Breadcrumbs>
       </div>
       <div className='row'>
-        <div className='col col-sm-6 stock-item'>
+        <div className='col col-sm-6'>
           <ImageGallery items={images} />
         </div>
         <div className='col col-sm-6'>
           <h1 className='product-title'>{productId.shortdescription} {productId.brand} {productId.model} {productId.size}</h1>
-          <p className='price-amount'><bdi>{productId.price} <span className='price-currency-symbol'>лв</span></bdi></p>
+          <p className='product-price'><bdi>{productId.price} <span className='price-currency-symbol'>лв</span></bdi></p>
           <ul>
             <li><strong>Марка</strong> - {productId.brand}</li>
             <li><strong>Размер</strong> - {productId.sizewidth} {productId.sizeheight} {productId.sizediameter}</li>

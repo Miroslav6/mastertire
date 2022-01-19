@@ -2,10 +2,15 @@
 @import '../css/variables.scss';
 @import '~react-image-gallery/styles/scss/image-gallery.scss';
 
+html{
+    background-color: $base-color;
+}
+
 body {
     font-size: $fontsize-m;
     font-family: $base-font-2;
     margin-bottom: $margin-xl;
+    background-color: $base-color;
 
     h1              { font-size: 2em; margin: .67em 0 }
     h2              { font-size: 1.5em; margin: .75em 0 }
@@ -13,7 +18,11 @@ body {
     h5              { font-size: .83em; margin: 1.5em 0 }
     h6              { font-size: .75em; margin: 1.67em 0 }
     h1, h2, h3, h4,
-    h5, h6          { font-weight: bolder }
+    h5, h6          
+    { 
+        font-weight: bolder; 
+        color: $color-4;
+    }
 
     p {
         margin: .83em 0
@@ -25,7 +34,7 @@ body {
 
 header {
     padding: $margin-m 0;
-    background-color: $base-color;
+    background-color: $color-3;
     box-shadow: 1px 1px 10px rgb(0 0 0 / 15%);
     nav {
         font-size: $fontsize-l;
@@ -70,10 +79,14 @@ main {
 
     .stock-container{
 
-        .stock-item {
-
+        .products-item {
+            background-color: $color-1;
+            display: block;
+            border-radius: 4px;
+            -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4); 
+            box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.1);
             &:hover{
-                opacity: .5;
+                box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.4);
             }
         }
     }
@@ -102,8 +115,24 @@ main {
     overflow: hidden;
 }
 
-.price-amount {
-    font-size: $fontsize-xl;
+.product-price {
+    font-size: $fontsize-xxl;
     font-weight: 700;
     margin-bottom: $margin-m;
+    color: $color-3;
+}
+
+.products-price {
+    font-size: $fontsize-l;
+    font-weight: 700;
+    margin-bottom: $margin-m;
+    color: $color-3;
+}
+
+.MuiBox-root{
+    background-color: $color-1;
+}
+
+.image-gallery {
+    background-color: $color-1;
 }
