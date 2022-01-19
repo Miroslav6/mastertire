@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import { Axios } from "axios";
 import { productData } from "../db-products";
 import Typography from '@mui/material/Typography';
@@ -7,29 +8,19 @@ import Link from '@mui/material/Link';
 import ImageGallery from 'react-image-gallery';
 
 const ProductPage = (props) => {
-  const url = window.location.href;
-  const lastSegment = url.substring(url.lastIndexOf("/") + 1);
 
-  const productId = productData.find(({ id }) => id == lastSegment);
+  const { productId } = useParams();
+  const usedProduct = productData.find(({ id }) => id == productId);
 
-  const images = productId.images;
-
-  console.log(images);
+  const images = usedProduct.images;
 
   useEffect(() => {
     
-
-    // Axios.get(`/api/product/products_by_id?id=${productData.id}&type=single`)
-
-    // let variable = {
-
-    // }
-    // Axios.post('/api/product/getProduct', variable)
   }, [])
 
   return (
     <div className="container mt-5">
-      <div role="presentation">
+      <div className='mb-4' role="presentation">
         <Breadcrumbs aria-label="breadcrumb">
           <Link underline="hover" color="inherit" href="/">
             Начало
@@ -49,20 +40,20 @@ const ProductPage = (props) => {
           <ImageGallery items={images} />
         </div>
         <div className='col col-sm-6'>
-          <h1 className='product-title'>{productId.shortdescription} {productId.brand} {productId.model} {productId.size}</h1>
-          <p className='product-price'><bdi>{productId.price} <span className='price-currency-symbol'>лв</span></bdi></p>
+          <h1 className='product-title'>{usedProduct.position} {usedProduct.shortdescription} {usedProduct.brand} {usedProduct.model} {usedProduct.size}</h1>
+          <p className='product-price'><bdi>{usedProduct.price} <span className='price-currency-symbol'>лв</span></bdi></p>
           <ul>
-            <li><strong>Марка</strong> - {productId.brand}</li>
-            <li><strong>Размер</strong> - {productId.sizewidth} {productId.sizeheight} {productId.sizediameter}</li>
-            <li><strong>DOT</strong> - {productId.DOT}</li>
-            <li><strong>Тип</strong> - {productId.type}</li>
+            <li><strong>Марка</strong> - {usedProduct.brand}</li>
+            <li><strong>Размер</strong> - {usedProduct.sizewidth} {usedProduct.sizeheight} {usedProduct.sizediameter}</li>
+            <li><strong>DOT</strong> - {usedProduct.DOT}</li>
+            <li><strong>Тип</strong> - {usedProduct.type}</li>
           </ul>
           <p>За поръчки и консултация се свържете с наш консултант</p>
           <a href='tel:+359883378679' className='h3 hd-phone'><i className="bi bi-telephone"></i> +359 883378679</a>
         </div>
         <div className='col col-sm-12'>
           <h2>Описание за продукта</h2>
-          <div dangerouslySetInnerHTML={{ __html: productId.description }} />
+          <div dangerouslySetInnerHTML={{ __html: usedProduct.description }} />
         </div>
       </div>
     </div>

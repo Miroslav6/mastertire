@@ -29,6 +29,14 @@ body {
     }
     ul {
         list-style-type: disc;
+
+        li{
+            &:before{
+                content: '/e092';
+                display: inline-block;
+                font-family: 'Font Awesome';
+             }
+        }
     }
 }
 
@@ -93,7 +101,7 @@ main {
 }
 
 .product-title {
-    color: #6b6b6b;
+    color: #222;
     text-transform: uppercase;
     font-size: $fontsize-xxl;
 

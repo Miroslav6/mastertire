@@ -153,7 +153,7 @@ switch (filterType) {
           return (
             <div className='col col-sm-3 mb-5 text-center' key={key}>
               <a href={'/product/' + data.id} className='products-item h-100 p-3'>
-                <div>{data.images ? <img lazy src={data.images[0].original} alt="Brand image" /> : ''}</div>
+                <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt="Brand image" /> : ''}</div>
                 <h3>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
                 <div className='products-price'><strong>{data.price}лв</strong></div>
               </a>
