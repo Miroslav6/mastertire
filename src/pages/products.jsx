@@ -14,11 +14,13 @@ const Products = () => {
   const [width, setWidth] = useState('Ширина');
   const [height, setHeight] = useState('Височина');
   const [diameter, setDiameter] = useState('Диаметър');
+  const [brand, setBrand] = useState('Марка');
 
   const clearState = () => {
     setWidth('Ширина');
     setHeight('Височина');
     setDiameter('Диаметър');
+    setBrand('Марка');
   };
 
   useEffect(() => {
@@ -35,26 +37,32 @@ const Products = () => {
       filteredProducts = filteredProducts.filter(product => product.sizediameter === diameter)
     }
 
+    if(brand !== 'Марка') {
+      filteredProducts = filteredProducts.filter(product => product.brand === brand)
+    }
+
     setProducts(filteredProducts);
 
-  },[width, height, diameter]);
+  },[width, height, diameter, brand]);
 
   let allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth).sort()), 'Ширина'];
   let allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort()), 'Височина'];
   let allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort()), 'Диаметър'];
+  let allUniqueBrands = [...new Set(productData.map((data) => data.brand).sort()), 'Марка'];
 
 const handleFilterChange = (e, filterType) => {
 switch (filterType) {
     case "width":
       setWidth(e.target.value)
       break;
-
     case "height":
       setHeight(e.target.value)
       break;
-
     case "diameter":
       setDiameter(e.target.value)
+      break;
+    case "brand":
+      setBrand(e.target.value)
       break;
   }
 
@@ -69,6 +77,9 @@ switch (filterType) {
   const handleChangeDiameter = (event) => {
     handleFilterChange(event, 'diameter')
   };
+  const handleChangeBrand= (event) => {
+    handleFilterChange(event, 'brand')
+  };
 
 
   return (
@@ -77,8 +88,11 @@ switch (filterType) {
         <h1>Мото гуми</h1>
       </div>
       <div className='row'>
+      <div className='col-sm-12'>
+        <h2>Размер на гумите</h2>
+      </div>
         <div className='col col-sm-3 mb-5 stock-item'>
-          <Box sx={{ minWidth: 120 }}>
+          <Box>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Ширина</InputLabel>
               <Select
@@ -100,7 +114,7 @@ switch (filterType) {
           </Box>
         </div>
         <div className='col col-sm-3 mb-5 stock-item'>
-          <Box sx={{ minWidth: 120 }}>
+          <Box>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Височина</InputLabel>
               <Select
@@ -122,7 +136,7 @@ switch (filterType) {
           </Box>
         </div>
         <div className='col col-sm-3 mb-5 stock-item'>
-          <Box sx={{ minWidth: 120 }}>
+          <Box>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Диаметър</InputLabel>
               <Select
@@ -147,8 +161,35 @@ switch (filterType) {
           <Button variant="contained" onClick={clearState} className='ml-3 h-100'>Изчисти</Button>
         </div>
       </div>
-      <div className='row stock-container'>
+      <div className='row'>
+        <div className='col col-sm-3 mb-5 stock-item'>
+          <Box>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Марка</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                value={brand}
+                label="Марка"
+                onChange={handleChangeBrand}
+              >
+                {allUniqueBrands?.map(data => {
+                  return (
+                    <MenuItem key={data} value={data}>
+                      {data}
+                    </MenuItem>
+                  );
+                })}
+              </Select>
+            </FormControl>
+          </Box>
+        </div>
 
+        <div className='col col-sm-3 mb-5 stock-item'>
+         
+        </div>
+      </div>
+      <div className='separator'></div>
+      <div className='row stock-container'>
         {products.map((data, key) => {
           return (
             <div className='col col-sm-3 mb-5 text-center' key={key}>

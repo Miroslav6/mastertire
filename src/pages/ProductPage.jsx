@@ -39,7 +39,7 @@ const ProductPage = (props) => {
         <div className='col col-sm-6'>
           <ImageGallery items={images} />
         </div>
-        <div className='col col-sm-6'>
+        <div className='col col-sm-6 entry-content'>
           <h1 className='product-title'>{usedProduct.position} {usedProduct.shortdescription} {usedProduct.brand} {usedProduct.model} {usedProduct.size}</h1>
           <p className='product-price'><bdi>{usedProduct.price} <span className='price-currency-symbol'>лв</span></bdi></p>
           <ul>
