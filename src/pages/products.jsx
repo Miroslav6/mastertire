@@ -15,6 +15,7 @@ const Products = () => {
   const [height, setHeight] = useState('Височина');
   const [diameter, setDiameter] = useState('Диаметър');
   const [brand, setBrand] = useState('Марка');
+  const [sorting, setSorting] = useState('Сортиране');
 
   const clearState = () => {
     setWidth('Ширина');
@@ -49,6 +50,10 @@ const Products = () => {
   let allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort()), 'Височина'];
   let allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort()), 'Диаметър'];
   let allUniqueBrands = [...new Set(productData.map((data) => data.brand).sort()), 'Марка'];
+
+// const ascendingOrder = () => {
+//   (a, b) => a.price > b.price ? 1 : -1
+// };
 
 const handleFilterChange = (e, filterType) => {
 switch (filterType) {
@@ -94,10 +99,10 @@ switch (filterType) {
         <div className='col col-sm-3 mb-5 stock-item'>
           <Box>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Ширина</InputLabel>
+              <InputLabel id="width-select-label">Ширина</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId="width-select-label"
+                id="width-select"
                 value={width}
                 label="Ширина"
                 onChange={handleChangeWidth}
@@ -116,10 +121,10 @@ switch (filterType) {
         <div className='col col-sm-3 mb-5 stock-item'>
           <Box>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Височина</InputLabel>
+              <InputLabel id="height-select-label">Височина</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId="height-select-label"
+                id="height-select"
                 value={height}
                 label="Височина"
                 onChange={handleChangeHeight}
@@ -138,10 +143,10 @@ switch (filterType) {
         <div className='col col-sm-3 mb-5 stock-item'>
           <Box>
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Диаметър</InputLabel>
+              <InputLabel id="diameter-select-label">Диаметър</InputLabel>
               <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
+                labelId="diameter-select-label"
+                id="diameter-select"
                 value={diameter}
                 label="Диаметър"
                 onChange={handleChangeDiameter}
@@ -188,15 +193,41 @@ switch (filterType) {
          
         </div>
       </div>
-      <div className='separator'></div>
+      <div className='separator' />
+      <div className='row justify-content-end'>
+      <div className='col col-sm-3 mb-5'>
+          <Box>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Сортиране</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={sorting}
+                label="Сортиране"
+                onChange={handleChangeDiameter}
+              >
+                    <MenuItem>
+                      Цена възходящо
+                    </MenuItem>
+                    <MenuItem>
+                      Цена низходящо
+                    </MenuItem>
+                  
+              </Select>
+            </FormControl>
+          </Box>
+        </div>
+      </div>
       <div className='row stock-container'>
-        {products.map((data, key) => {
+        {products.sort((a, b) => a.price > b.price ? 1 : -1).map((data, key) => {
           return (
             <div className='col col-sm-3 mb-5 text-center' key={key}>
-              <a href={'/product/' + data.id} className='products-item h-100 p-3'>
-                <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt="Brand image" /> : ''}</div>
-                <h3>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
+              <a href={'/product/' + data.id} className='products-item h-100 p-3 pt-5'>
+                <div> <img loading="lazy" src= {'/Files/Images/Products/'+data.brand+'.png'} alt="Brand image" className='brand-image'/> </div>
+                <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt="Tire image" /> : ''}</div>
+                <h3 className='pb-2 border-bottom'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
                 <div className='products-price'><strong>{data.price}лв</strong></div>
+                
               </a>
 
             </div>

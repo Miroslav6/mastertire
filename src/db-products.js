@@ -75,7 +75,7 @@ export const productData = [
     },
     {
         "id": 5,
-        "brand":"Bridgstone",
+        "brand":"Bridgestone",
         "model": "BATTLAX BT-016 PRO HYPERSPORT",
         "position": "Предна гума",
         "sizewidth":"120",
