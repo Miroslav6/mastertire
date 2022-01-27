@@ -16,7 +16,7 @@ const Products = () => {
   const [diameter, setDiameter] = useState('Диаметър');
   const [brand, setBrand] = useState('Марка');
   const [sorting, setSorting] = useState('Сортиране');
-
+  console.log(sorting);
   const clearState = () => {
     setWidth('Ширина');
     setHeight('Височина');
@@ -42,18 +42,29 @@ const Products = () => {
       filteredProducts = filteredProducts.filter(product => product.brand === brand)
     }
 
+    // if(sorting !== 'Цена възходящо') {
+    //   alert(1);
+    //   filteredProducts = filteredProducts.filter(product => product.brand === brand)
+    // }
+
     setProducts(filteredProducts);
 
-  },[width, height, diameter, brand]);
+  },[width, height, diameter, brand, sorting]);
 
   let allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth).sort()), 'Ширина'];
   let allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort()), 'Височина'];
   let allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort()), 'Диаметър'];
   let allUniqueBrands = [...new Set(productData.map((data) => data.brand).sort()), 'Марка'];
 
-// const ascendingOrder = () => {
-//   (a, b) => a.price > b.price ? 1 : -1
-// };
+const ascendingOrder = (a, b) => 
+{
+  return a.price > b.price ? 1 : -1;
+}
+
+const descentOrder = (a, b) => 
+{
+  return a.price < b.price ? 1 : -1;
+}
 
 const handleFilterChange = (e, filterType) => {
 switch (filterType) {
@@ -69,8 +80,11 @@ switch (filterType) {
     case "brand":
       setBrand(e.target.value)
       break;
-  }
-
+    // case "sorting":
+    //   setSorting(e.target.value)
+    //     console.log(e.target.value);
+    //     break;
+    }
 };
 
   const handleChangeWidth = (event) => {
@@ -85,12 +99,15 @@ switch (filterType) {
   const handleChangeBrand= (event) => {
     handleFilterChange(event, 'brand')
   };
-
+  const handleChangePrice = (event) => {
+    alert(1);
+    setSorting(event.target.value);
+  };
 
   return (
     <div className='container mt-5'>
       <div className='row breadcrumb'>
-        <h1>Мото гуми</h1>
+        <h1>Мото гуми</h1>{sorting}
       </div>
       <div className='row'>
       <div className='col-sm-12'>
@@ -204,7 +221,7 @@ switch (filterType) {
                 id="demo-simple-select"
                 value={sorting}
                 label="Сортиране"
-                onChange={handleChangeDiameter}
+                onChange={handleChangePrice}
               >
                     <MenuItem>
                       Цена възходящо
@@ -212,14 +229,16 @@ switch (filterType) {
                     <MenuItem>
                       Цена низходящо
                     </MenuItem>
-                  
+                    <MenuItem>
+                      Сортиране
+                    </MenuItem>
               </Select>
             </FormControl>
           </Box>
         </div>
       </div>
       <div className='row stock-container'>
-        {products.sort((a, b) => a.price > b.price ? 1 : -1).map((data, key) => {
+        {products.sort(ascendingOrder).map((data, key) => {
           return (
             <div className='col col-sm-3 mb-5 text-center' key={key}>
               <a href={'/product/' + data.id} className='products-item h-100 p-3 pt-5'>
@@ -227,9 +246,7 @@ switch (filterType) {
                 <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt="Tire image" /> : ''}</div>
                 <h3 className='pb-2 border-bottom'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
                 <div className='products-price'><strong>{data.price}лв</strong></div>
-                
               </a>
-
             </div>
           );
         })}

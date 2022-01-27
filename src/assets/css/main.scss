@@ -67,14 +67,6 @@ header {
 
 main {
     
-    .breadcrumb {
-
-        h1 {
-            font-size: $fontsize-xl;
-        }
-
-    }
-
     .separator {
         position: relative;
         width: 100%;
@@ -114,8 +106,10 @@ main {
         }
 
         .brand-image{
+            width: 200px;
             max-width: 60%;
         }
+
     }
 
     .entry-content {
@@ -155,6 +149,11 @@ main {
     height: 227px;
     margin-bottom: $margin-s;
     overflow: hidden;
+}
+
+.product-brand-image{
+    width: 200px;
+    max-width: 60%;
 }
 
 .product-price {

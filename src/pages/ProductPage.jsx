@@ -30,9 +30,9 @@ const ProductPage = (props) => {
             color="inherit"
             href="/products"
           >
-            Продукти
+            Гуми
           </Link>
-          <Typography color="text.primary">Breadcrumbs</Typography>
+          <Typography color="text.primary">{usedProduct.position} {usedProduct.sizewidth} {usedProduct.sizeheight} {usedProduct.sizediameter} {usedProduct.brand} {usedProduct.model} </Typography>
         </Breadcrumbs>
       </div>
       <div className='row'>
@@ -40,7 +40,8 @@ const ProductPage = (props) => {
           <ImageGallery items={images} />
         </div>
         <div className='col col-sm-6 entry-content'>
-          <h1 className='product-title'>{usedProduct.position} {usedProduct.shortdescription} {usedProduct.brand} {usedProduct.model} {usedProduct.size}</h1>
+          <div> <img loading="lazy" src= {'/Files/Images/Products/'+usedProduct.brand+'.png'} alt="Brand image" className='product-brand-image'/> </div>
+          <h1 className='product-title'>{usedProduct.position} {usedProduct.brand} {usedProduct.model} {usedProduct.sizewidth} {usedProduct.sizeheight} {usedProduct.sizediameter}</h1>
           <p className='product-price'><bdi>{usedProduct.price} <span className='price-currency-symbol'>лв</span></bdi></p>
           <ul>
             <li><strong>Марка</strong> - {usedProduct.brand}</li>

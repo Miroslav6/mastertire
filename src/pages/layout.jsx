@@ -19,13 +19,13 @@ const Layout = () => {
                                         <Link to="/">Home</Link>
                                     </li>
                                     <li>
-                                        <Link to="/products">Продукти</Link>
+                                        <Link to="/products">Гуми</Link>
                                     </li>
                                     <li>
                                         <Link to="/contacts">Contacts</Link>
                                     </li>
                                     <li>
-                                        <Link to="/used-tires">Втора употреба</Link>
+                                        <Link to="/used-tires">Гуми втора употреба</Link>
                                     </li>
                                     <li>
                                         <Link to="/about-us">За Нас</Link>
