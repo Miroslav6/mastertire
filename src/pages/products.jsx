@@ -7,6 +7,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import {useSelector, useDispatch} from 'react-redux'
+import { increment } from '../actions';
 
 const Products = () => {
 
@@ -16,7 +18,10 @@ const Products = () => {
   const [diameter, setDiameter] = useState('Диаметър');
   const [brand, setBrand] = useState('Марка');
   const [sorting, setSorting] = useState('Сортиране');
-  console.log(sorting);
+
+  const couter = useSelector(state => state.counter)
+  const dispatch = useDispatch();
+  console.log(couter);
   const clearState = () => {
     setWidth('Ширина');
     setHeight('Височина');
@@ -248,7 +253,7 @@ switch (filterType) {
                 <div className='products-price'><strong>{data.price}лв</strong></div>
               </a>
               
-              <span><i className="bi bi-heart"></i>Добави в любими</span>
+              <span onClick={() => dispatch(increment())}><i className="bi bi-heart"></i>Добави в любими</span>
             </div>
           );
         })}
