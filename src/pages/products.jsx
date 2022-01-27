@@ -247,6 +247,8 @@ switch (filterType) {
                 <h3 className='pb-2 border-bottom'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
                 <div className='products-price'><strong>{data.price}лв</strong></div>
               </a>
+              
+              <span><i className="bi bi-heart"></i>Добави в любими</span>
             </div>
           );
         })}
