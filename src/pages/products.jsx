@@ -112,7 +112,7 @@ switch (filterType) {
   return (
     <div className='container mt-5'>
       <div className='row breadcrumb'>
-        <h1>Мото гуми</h1>{sorting}
+        <h1>Мото гуми</h1>
       </div>
       <div className='row'>
       <div className='col-sm-12'>
