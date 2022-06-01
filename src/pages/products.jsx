@@ -247,8 +247,8 @@ switch (filterType) {
           return (
             <div className='col col-sm-3 mb-5 text-center' key={key}>
               <a href={'/product/' + data.id} className='products-item h-100 p-3 pt-5'>
-                <div> <img loading="lazy" src= {'/Files/Images/Products/'+data.brand+'.png'} alt="Brand image" className='brand-image'/> </div>
-                <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt="Tire image" /> : ''}</div>
+                <div> <img loading="lazy" src= {'/Files/Images/Products/'+data.brand+'.png'} alt={data.brand} className='brand-image'/> </div>
+                <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt={data.brand} /> : ''}</div>
                 <h3 className='pb-2 border-bottom'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
                 <div className='products-price'><strong>{data.price}лв</strong></div>
               </a>
