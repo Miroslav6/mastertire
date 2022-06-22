@@ -7,7 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import {useSelector, useDispatch} from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { increment } from '../actions';
 
 const Products = () => {
@@ -31,19 +31,19 @@ const Products = () => {
 
   useEffect(() => {
     let filteredProducts = productData;
-    if(width !== 'Ширина') {
+    if (width !== 'Ширина') {
       filteredProducts = filteredProducts.filter(product => product.sizewidth === width)
     }
 
-    if(height !== 'Височина') {
+    if (height !== 'Височина') {
       filteredProducts = filteredProducts.filter(product => product.sizeheight === height)
     }
 
-    if(diameter !== 'Диаметър') {
+    if (diameter !== 'Диаметър') {
       filteredProducts = filteredProducts.filter(product => product.sizediameter === diameter)
     }
 
-    if(brand !== 'Марка') {
+    if (brand !== 'Марка') {
       filteredProducts = filteredProducts.filter(product => product.brand === brand)
     }
 
@@ -54,43 +54,38 @@ const Products = () => {
 
     setProducts(filteredProducts);
 
-  },[width, height, diameter, brand, sorting]);
+  }, [width, height, diameter, brand, sorting]);
 
   let allUniqueWidths = [...new Set(productData.map((data) => data.sizewidth).sort()), 'Ширина'];
   let allUniqueHeights = [...new Set(productData.map((data) => data.sizeheight).sort()), 'Височина'];
   let allUniqueDiameters = [...new Set(productData.map((data) => data.sizediameter).sort()), 'Диаметър'];
   let allUniqueBrands = [...new Set(productData.map((data) => data.brand).sort()), 'Марка'];
+  let sortingList = ['Цена възходящо', 'Цена низходящо', 'Сортиране']
 
-const ascendingOrder = (a, b) => 
-{
-  return a.price > b.price ? 1 : -1;
-}
+  const ascendingOrder = (a, b) => {
+    return a.price > b.price ? 1 : -1;
+  }
 
-const descentOrder = (a, b) => 
-{
-  return a.price < b.price ? 1 : -1;
-}
+  const descentOrder = (a, b) => {
+    return a.price < b.price ? 1 : -1;
+  }
 
-const handleFilterChange = (e, filterType) => {
-switch (filterType) {
-    case "width":
-      setWidth(e.target.value)
-      break;
-    case "height":
-      setHeight(e.target.value)
-      break;
-    case "diameter":
-      setDiameter(e.target.value)
-      break;
-    case "brand":
-      setBrand(e.target.value)
-      break;
-    // case "sorting":
-    //   setSorting(e.target.value)
-    //     console.log(e.target.value);
-    //     break;
+  const handleFilterChange = (e, filterType) => {
+    switch (filterType) {
+      case "width":
+        setWidth(e.target.value)
+        break;
+      case "height":
+        setHeight(e.target.value)
+        break;
+      case "diameter":
+        setDiameter(e.target.value)
+        break;
+      case "brand":
+        setBrand(e.target.value)
+        break;
     }
-};
+  };
 
   const handleChangeWidth = (event) => {
     handleFilterChange(event, 'width')
@@ -101,12 +96,18 @@ switch (filterType) {
   const handleChangeDiameter = (event) => {
     handleFilterChange(event, 'diameter')
   };
-  const handleChangeBrand= (event) => {
+  const handleChangeBrand = (event) => {
     handleFilterChange(event, 'brand')
   };
   const handleChangePrice = (event) => {
-    alert(1);
     setSorting(event.target.value);
+    if (event.target.value === 'Цена възходящо') {
+      return products.sort(ascendingOrder);
+    }
+    else if (event.target.value === 'Цена низходящо') {
+      return products.sort(descentOrder);
+    }
+     
   };
 
   return (
@@ -115,9 +116,9 @@ switch (filterType) {
         <h1>Мото гуми</h1>
       </div>
       <div className='row'>
-      <div className='col-sm-12'>
-        <h2>Размер на гумите</h2>
-      </div>
+        <div className='col-sm-12'>
+          <h2>Размер на гумите</h2>
+        </div>
         <div className='col col-sm-3 mb-5 stock-item'>
           <Box>
             <FormControl fullWidth>
@@ -212,12 +213,12 @@ switch (filterType) {
         </div>
 
         <div className='col col-sm-3 mb-5 stock-item'>
-         
+
         </div>
       </div>
       <div className='separator' />
       <div className='row justify-content-end'>
-      <div className='col col-sm-3 mb-5'>
+        <div className='col col-sm-3 mb-5'>
           <Box>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Сортиране</InputLabel>
@@ -228,31 +229,29 @@ switch (filterType) {
                 label="Сортиране"
                 onChange={handleChangePrice}
               >
-                    <MenuItem>
-                      Цена възходящо
+                {sortingList?.map(data => {
+                  return (
+                    <MenuItem key={data} value={data}>
+                      {data}
                     </MenuItem>
-                    <MenuItem>
-                      Цена низходящо
-                    </MenuItem>
-                    <MenuItem>
-                      Сортиране
-                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Box>
         </div>
       </div>
       <div className='row stock-container'>
-        {products.sort(ascendingOrder).map((data, key) => {
+        {products.map((data, key) => {
           return (
             <div className='col col-sm-3 mb-5 text-center' key={key}>
               <a href={'/product/' + data.id} className='products-item h-100 p-3 pt-5'>
-                <div> <img loading="lazy" src= {'/Files/Images/Products/'+data.brand+'.png'} alt={data.brand} className='brand-image'/> </div>
+                <div> <img loading="lazy" src={'/Files/Images/Products/' + data.brand + '.png'} alt={data.brand} className='brand-image' /> </div>
                 <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt={data.brand} /> : ''}</div>
                 <h3 className='pb-2 border-bottom'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
                 <div className='products-price'><strong>{data.price}лв</strong></div>
               </a>
-              
+
               <span onClick={() => dispatch(increment())}><i className="bi bi-heart"></i>Добави в любими</span>
             </div>
           );
