@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Slideshow from "../Components/Slideshow"
 
 const Home = (props) => {
-  const [isOpen, setIsOpen] = useState(true);
+
 
   useEffect(() => {
-    document.body.classList.toggle('home-page', isOpen);
-  },[isOpen])
+    document.body.classList.toggle('home-page');
+    document.title = "Начало | Гуми за мотор | Master Tire";
+  },[])
   
   return (
     <>

@@ -32,8 +32,9 @@ body {
 
 header {
     padding: $margin-m 0;
-    background-color: $color-3;
+    background-color: $color-1;
     box-shadow: 1px 1px 10px rgb(0 0 0 / 15%);
+    font-family: $base-font-1;
     nav {
         font-size: $fontsize-l;
 
@@ -45,8 +46,8 @@ header {
                 padding: 0 10px;
                 
                 a {
-                    color: $color-1;
-                    font-weight: bold;
+                    color: $color-2;
+                    font-weight: 400;
                 }
             }
 
@@ -55,7 +56,7 @@ header {
 
     .hd-phone {
         padding-right: 10px;
-        color: $color-1;
+        color: $color-2;
         font-size: $fontsize-l;
     }
 
@@ -128,6 +129,10 @@ main {
     }
 }
 
+.product-item {
+    
+
+
 .product-title {
     color: #222;
     text-transform: uppercase;
@@ -142,6 +147,8 @@ main {
         width: 100%;
         max-width: 30px;
     }
+}
+
 }
 
 .image-frame {
@@ -176,4 +183,8 @@ main {
 
 .image-gallery {
     background-color: $color-1;
+}
+
+.text-red {
+    color: #ff6a00;
 }

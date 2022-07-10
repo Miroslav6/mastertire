@@ -31,6 +31,7 @@ const Products = () => {
 
   useEffect(() => {
     let filteredProducts = productData;
+    document.title = "Мото гуми | Master Tire";
     if (width !== 'Ширина') {
       filteredProducts = filteredProducts.filter(product => product.sizewidth === width)
     }
@@ -46,11 +47,6 @@ const Products = () => {
     if (brand !== 'Марка') {
       filteredProducts = filteredProducts.filter(product => product.brand === brand)
     }
-
-    // if(sorting !== 'Цена възходящо') {
-    //   alert(1);
-    //   filteredProducts = filteredProducts.filter(product => product.brand === brand)
-    // }
 
     setProducts(filteredProducts);
 
@@ -102,12 +98,12 @@ const Products = () => {
   const handleChangePrice = (event) => {
     setSorting(event.target.value);
     if (event.target.value === 'Цена възходящо') {
-      return products.sort(ascendingOrder);
-    }
-    else if (event.target.value === 'Цена низходящо') {
       return products.sort(descentOrder);
     }
-     
+    else if (event.target.value === 'Цена низходящо') {
+      return products.sort(ascendingOrder);
+    }
+
   };
 
   return (
@@ -217,7 +213,7 @@ const Products = () => {
         </div>
       </div>
       <div className='separator' />
-      <div className='row justify-content-end'>
+      <div className='row justify-content-start'>
         <div className='col col-sm-3 mb-5'>
           <Box>
             <FormControl fullWidth>
@@ -243,22 +239,26 @@ const Products = () => {
       </div>
       <div className='row stock-container'>
         {products.map((data, key) => {
-          return (
-            <div className='col col-sm-3 mb-5 text-center' key={key}>
-              <a href={'/product/' + data.id} className='products-item h-100 p-3 pt-5'>
-                <div> <img loading="lazy" src={'/Files/Images/Products/' + data.brand + '.png'} alt={data.brand} className='brand-image' /> </div>
-                <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt={data.brand} /> : ''}</div>
-                <h3 className='pb-2 border-bottom'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
-                <div className='products-price'><strong>{data.price}лв</strong></div>
-              </a>
-
-              <span onClick={() => dispatch(increment())}><i className="bi bi-heart"></i>Добави в любими</span>
-            </div>
+          return (<>
+            {
+              data.visible ? <div className='col col-sm-3 mb-5 text-center product-item' key={key}>
+                <a href={'/product/' + data.id} className='products-item h-100 p-3 pt-5'>
+                  <div> <img loading="lazy" src={'/Files/Images/Products/' + data.brand + '.png'} alt={data.brand} className='brand-image' /> </div>
+                  <div>{data.images ? <img loading="lazy" src={data.images[0].original} alt={data.brand} /> : ''}</div>
+                  <div className='pb-2 border-bottom'>
+                    <span className='text-red '>DOT {data.DOT}</span>
+                  </div>
+                  <h3 className='pb-2'>{data.position} {data.brand} {data.model} {data.sizewidth} {data.sizeheight} {data.sizediameter}</h3>
+                  <div className='products-price'><strong>{data.price}лв</strong></div>
+                </a>
+              </div> : ''
+            }
+          </>
           );
         })}
       </div>
 
-    </div>
+    </div >
   )
 }
 
