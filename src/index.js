@@ -20,8 +20,6 @@ import 'bulma/css/bulma.css';
 import './assets/css/main.scss';
 
 
-
-
 ReactDOM.render(
   <><React.StrictMode>
 
