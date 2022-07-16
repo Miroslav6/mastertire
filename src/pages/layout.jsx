@@ -13,24 +13,29 @@ const Layout = () => {
                             </a>
                         </div>
                         <div className='col col-sm-7'>
-                            <nav className='h-100 d-flex justify-content-center'>
-                                <ul className='align-items-center'>
-                                    <li>
-                                        <Link to="/">Home</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/products">Гуми</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/contacts">Contacts</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/used-tires">Гуми втора употреба</Link>
-                                    </li>
-                                    <li>
-                                        <Link to="/about-us">За Нас</Link>
-                                    </li>
-                                </ul>
+                            <nav className='navbar navbar-expand-lg navbar-light h-100 d-flex justify-content-center' id="navbarSupportedContent">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul className='align-items-center'>
+                                        <li>
+                                            <Link to="/">Home</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/products">Гуми</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/contacts">Contacts</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/used-tires">Гуми втора употреба</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="/about-us">За Нас</Link>
+                                        </li>
+                                    </ul>
+                                </div>
                             </nav>
                         </div>
                         <div className='col col-sm-3 d-flex align-items-center justify-content-end'>
