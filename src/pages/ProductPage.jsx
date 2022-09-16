@@ -10,6 +10,7 @@ import ImageGallery from 'react-image-gallery';
 const ProductPage = (props) => {
 
   const { productId } = useParams();
+
   const usedProduct = productData.find(({ id }) => id == productId);
 
   const images = usedProduct.images;
