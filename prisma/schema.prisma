@@ -9,7 +9,7 @@ datasource db {
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model tires {
-  id        Int?
+  id        Int @default(autoincrement()) @id
   brand     String? @db.Text
   model     String? @db.Text
   sizewidth Int?
