@@ -15,6 +15,7 @@
     "bootstrap-icons": "^1.7.2",
     "bulma": "^0.9.3",
     "easybase-react": "^2.2.13",
+    "graphql": "^16.6.0",
     "htmlparser2": "^7.2.0",
     "jquery": "^3.6.0",
     "json-server": "^0.17.0",
